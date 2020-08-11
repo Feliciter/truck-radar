@@ -21,7 +21,7 @@ export class PopupModalComponent implements OnInit {
     public activeModal: NgbActiveModal
   ) {
     this.truckForm = this.formBuilder.group({
-      truck: ['',[Validators.required, Validators.minLength(4)]],
+      truckname: ['',[Validators.required, Validators.minLength(4)]],
       latitude: ['',[Validators.required,  Validators.pattern("^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$")]],
       longitude: ['',[Validators.required,  Validators.pattern("^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$")]]
      
@@ -40,7 +40,7 @@ export class PopupModalComponent implements OnInit {
    saveUser() {
     if (this.truckForm.dirty && this.truckForm.valid) {
       alert(
-        `truck: ${this.truckForm.value.truck} latitude: ${this.truckForm.value.latitude} longitude: ${this.truckForm.value.longitude}`
+        `truck: ${this.truckForm.value.truckname} latitude: ${this.truckForm.value.latitude} longitude: ${this.truckForm.value.longitude}`
       );
     }
   }

@@ -1,15 +1,12 @@
 <div role="document" class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title"></h4>
-        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h4 class="modal-title">Add new asset</h4>      
       </div>
       <div class="modal-body">
          <form [formGroup]="truckForm" (submit)="saveUser">
-          <label for="truck">truck</label>
-          <input formControlName="truck" id="truck" /> 
+          <label for="truckname">truckname</label>
+          <input formControlName="truckname" id="truckname" /> 
           <label for=" latitude">latitude</label>
           <input formControlName="latitude" id="latitude" />
           <label for="longitude">longitude</label>
