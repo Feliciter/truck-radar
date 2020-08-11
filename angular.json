@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "truckradar"
+    }
+  },
+  "defaultProject": "truckradar",
+  "cli": {
+    "analytics": false
+  }
 }
