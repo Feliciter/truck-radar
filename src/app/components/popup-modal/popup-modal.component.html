@@ -1,0 +1,24 @@
+<div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <form [formGroup]="truckForm" (submit)="saveUser">
+          <label for="truck">truck</label>
+          <input formControlName="truck" id="truck" /> 
+          <label for=" latitude">latitude</label>
+          <input formControlName="latitude" id="latitude" />
+          <label for="longitude">longitude</label>
+          <input formControlName="longitude" id="longitude" />
+          <button type="submit" [disabled]="!truckForm.valid">Submit</button>
+        </form>
+        </div>
+            <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+      </div>
+    </div>
+  </div>
