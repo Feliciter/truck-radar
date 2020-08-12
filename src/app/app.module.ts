@@ -7,19 +7,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainSectionComponent } from './components/main-section/main-section.component';
 import { PopupModalComponent } from './components/popup-modal/popup-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './components/main-section/filter.pipe';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainSectionComponent,
-    PopupModalComponent
+    PopupModalComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

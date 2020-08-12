@@ -2,7 +2,10 @@
   <nav class="navbar navbar-dark  bg-dark flex-md-nowrap p-2 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Asset map</a>
     <div class="search-wrapper col-lg-3 ">
-      <input class="form-control form-control-dark w-50" type="text" placeholder="Search asset..." aria-label="Search">
+      <input class="form-control form-control-dark w-50" [(ngModel)]="searchText" type="text" placeholder="Search asset..." aria-label="Search">
+     
+   
+    
       <button type="button" class="btn btn-success" (click)="open()">Add Asset</button>
     </div>
   </nav>
@@ -26,11 +29,11 @@
         </div>
         <div class="sidebar-sticky pt-3">
           <ul>
-            <li class="nav-item" *ngFor="let truck of TRUCK_DATA">
+            <li class="nav-item" *ngFor="let item of TRUCK_DATA  | filter : searchText">
               <a class="nav-link" href="#">
-                {{ truck.truckname }}
+                {{ item.truckname }}
               </a>
-              <span class="close" (click)="remove(truck.truckname)">&times;</span>
+              <span class="close" (click)="remove(item.truckname)">&times;</span>
             </li>
           </ul>
         </div>

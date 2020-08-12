@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PopupModalComponent } from '../popup-modal/popup-modal.component';
+import { FilterPipe } from './filter.pipe';
+
 import { Truck } from '../../model/truck';
 
 @Component({
@@ -14,6 +16,8 @@ export class MainSectionComponent implements OnInit {
     { truckname: 'Truck 002', latitude: 22, longitude: 34 },
     { truckname: 'Truck 003', latitude: 28, longitude: 78 },
   ];
+
+  searchText;
 
   constructor(private modalService: NgbModal) {}
 
@@ -30,7 +34,7 @@ export class MainSectionComponent implements OnInit {
   // TO DO
   // if (window.confirm("Are you sure")) { }
 
-  remove(truckname): void {
+  remove(truckname:string): void {
     const index: number = this.TRUCK_DATA.findIndex(
       (i) => i.truckname === truckname
     );
