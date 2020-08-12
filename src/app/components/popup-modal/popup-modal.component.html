@@ -1,21 +1,26 @@
 <div role="document" class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Add new asset</h4>      
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Add new asset</h4>      
+    </div>
+    <div class="modal-body">
+              
+         <form [formGroup]="truckForm" (ngSubmit)="submit()">
+        <label for="truckname">truckname</label>
+        <input formControlName="truckname" id="truckname" /> 
+        <p>
+        <label for=" latitude">latitude</label>
+        <input formControlName="latitude" id="latitude" />
+        <p>
+        <label for="longitude">longitude</label>
+        <input formControlName="longitude" id="longitude" />
+        <p>
+        <button type="submit" [disabled]="!truckForm.valid"  >Save</button>
+          
+      </form>
       </div>
-      <div class="modal-body">
-         <form [formGroup]="truckForm" (submit)="saveUser">
-          <label for="truckname">truckname</label>
-          <input formControlName="truckname" id="truckname" /> 
-          <label for=" latitude">latitude</label>
-          <input formControlName="latitude" id="latitude" />
-          <label for="longitude">longitude</label>
-          <input formControlName="longitude" id="longitude" />
-          <button type="submit" [disabled]="!truckForm.valid">Submit</button>
-        </form>
-        </div>
-            <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-      </div>
+          <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
     </div>
   </div>
+</div>

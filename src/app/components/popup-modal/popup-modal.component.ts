@@ -27,23 +27,25 @@ export class PopupModalComponent implements OnInit {
      
     });
   }
-  // onSubmit() {
-  //   const placetruck = this.truckForm.value;
-  //   console.log('Your searh has been submitted in header comp', placetruck);
-  //   this.addTruck.emit(placetruck);
-  //   //TO DO use model
 
-  //   this.truckForm.reset();
-  // }
-
-  //todo
-   saveUser() {
+  submit() {
     if (this.truckForm.dirty && this.truckForm.valid) {
-      alert(
-        `truck: ${this.truckForm.value.truckname} latitude: ${this.truckForm.value.latitude} longitude: ${this.truckForm.value.longitude}`
+      console.log(
+       // `truck: ${this.truckForm.value.truckname} latitude: ${this.truckForm.value.latitude} longitude: ${this.truckForm.value.longitude}`
       );
+      const truck = {
+        truckname: this.truckForm.value.truckname,
+        latitude: this.truckForm.value.latitude,
+        longitude: this.truckForm.value.longitude,
+
+      };
+
+      console.log(truck)
+
+      this.activeModal.close(truck)
+
+     // this.addTruck.emit(truck);
     }
   }
-
   ngOnInit() {}
 }

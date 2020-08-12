@@ -1,5 +1,5 @@
 export interface Truck {
-  name: string;
+  truckname: string;
   latitude: number;
-  Longitude: number;  
+  longitude: number;  
 }
