@@ -17,7 +17,12 @@
           <div class="container">
             <h4>Map</h4>
           </div>
-          <canvas id="myChart" width="900" height="380"></canvas>        </div>
+          <!-- <canvas id="myChart" width="900" height="380"></canvas> -->
+          <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        
+        </div>
       </main>
 
       <!-- <div  class="my-4 w-100 rounded-lg "> -->
@@ -28,9 +33,10 @@
           <h4>Assets</h4>
         </div>
         <div class="sidebar-sticky pt-3">
+  
           <ul>
             <li class="nav-item" *ngFor="let item of TRUCK_DATA  | filter : searchText">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#" (click)="getmarker(item.latitude, item.longitude)" >
                 {{ item.truckname }}
               </a>
               <span class="close" (click)="remove(item.truckname)">&times;</span>

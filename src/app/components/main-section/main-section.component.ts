@@ -18,8 +18,19 @@ export class MainSectionComponent implements OnInit {
   ];
 
   searchText;
+  title = 'My first AGM project';
+  lat = 51.678418;
+  lng = 7.809007;
+  marker
 
   constructor(private modalService: NgbModal) {}
+
+  getmarker (lat:number,lng:number ){
+     lat = 51.678418;
+     lng = 7.809007;
+      }
+ 
+  
 
   open() {
     const modalRef = this.modalService.open(PopupModalComponent);
@@ -44,6 +55,8 @@ export class MainSectionComponent implements OnInit {
       this.TRUCK_DATA.splice(index, 1);
     }
   }
+
+  
 
   ngOnInit(): void {}
 }
