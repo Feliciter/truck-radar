@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PopupModalComponent } from '../popup-modal/popup-modal.component';
+import { PopupModalDeleteComponent } from '../popup-modal-delete/popup-modal-delete.component';
+
+
 import { TruckService } from '../../services/truck.service';
 import { Truck } from '../../model/truck';
 
@@ -9,6 +12,8 @@ import { Truck } from '../../model/truck';
   templateUrl: './main-section.component.html',
   styleUrls: ['./main-section.component.scss'],
 })
+
+
 export class MainSectionComponent implements OnInit {
 
   searchText;
@@ -19,7 +24,6 @@ export class MainSectionComponent implements OnInit {
   lat = 51.678418;
   lng = 7.809007;
   marker
-
   selectedMarker;
 
   markers = [
@@ -64,7 +68,11 @@ export class MainSectionComponent implements OnInit {
 
   remove(truckname: string): void {
 
-    this.truckService.removeTruck(truckname)
+    //work this.truckService.removeTruck(truckname)
+
+    const modalRef = this.modalService.open(PopupModalDeleteComponent);
+    modalRef.componentInstance.truckname = truckname;
+  
 
   }
 
