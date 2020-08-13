@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TruckService } from '../../services/truck.service';
 
@@ -17,20 +17,18 @@ export class PopupModalDeleteComponent implements OnInit {
     public activeModal: NgbActiveModal
   ) { }
 
-  
 
-  remove(truckname:string) {
 
-    console.log( truckname)
+  remove(truckname: string) {
 
-   this.truckService.removeTruck(truckname)
-   this.activeModal.close()
-   
+    this.truckService.removeTruck(truckname)
+    this.activeModal.close()
+
   }
 
   ngOnInit(): void {
 
-    
+
   }
 
 }

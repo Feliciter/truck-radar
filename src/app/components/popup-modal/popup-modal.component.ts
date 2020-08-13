@@ -1,9 +1,9 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component,  OnInit, Output, EventEmitter } from '@angular/core';
+import {  NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Truck } from '../../model/truck';
 
 import { FormBuilder } from '@angular/forms';
-import { FormGroup, FormControl } from '@angular/forms';
+
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -30,21 +30,17 @@ export class PopupModalComponent implements OnInit {
 
   submit() {
     if (this.truckForm.dirty && this.truckForm.valid) {
-      console.log(
-       // `truck: ${this.truckForm.value.truckname} latitude: ${this.truckForm.value.latitude} longitude: ${this.truckForm.value.longitude}`
-      );
+      
+      
       const truck = {
         truckname: this.truckForm.value.truckname,
         latitude: this.truckForm.value.latitude,
         longitude: this.truckForm.value.longitude,
 
-      };
-
-      console.log(truck)
+      }; 
 
       this.activeModal.close(truck)
-
-     // this.addTruck.emit(truck);
+    
     }
   }
   ngOnInit() {}
