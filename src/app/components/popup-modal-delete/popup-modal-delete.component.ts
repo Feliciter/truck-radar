@@ -24,6 +24,7 @@ export class PopupModalDeleteComponent implements OnInit {
     console.log( truckname)
 
    this.truckService.removeTruck(truckname)
+   this.activeModal.close()
    
   }
 

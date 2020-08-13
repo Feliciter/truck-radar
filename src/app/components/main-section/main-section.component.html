@@ -23,11 +23,15 @@
                 <!-- <canvas id="myChart" width="900" height="380"></canvas> -->
                 <agm-map
                         [latitude]="lat" [longitude]="lng">
+            
                     <agm-marker
                             *ngFor="let marker of markers "
                             [latitude]="marker.lat"
                             [longitude]="marker.lng"
-                            [opacity]="marker.alpha"
+                            [label]="marker.label"
+                            [title]="marker.title"
+                                                    
+                          
                     >
                     </agm-marker>
                 </agm-map>
@@ -45,7 +49,7 @@
 
                 <ul>
                     <li class="nav-item" *ngFor="let item of alltrucks | filter : searchText">
-                        <a class="nav-link" (click)="addMarker(item.latitude,  item.longitude)">
+                        <a class="nav-link" (click)="addMarker(item.latitude,  item.longitude, item.truckname)">
                             {{ item.truckname }}
                         </a>
                         <span class="close" (click)="remove(item.truckname)">&times;</span>

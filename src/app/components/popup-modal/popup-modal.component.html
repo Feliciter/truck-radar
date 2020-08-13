@@ -6,16 +6,16 @@
     <div class="modal-body">
               
          <form [formGroup]="truckForm" (ngSubmit)="submit()">
-        <label for="truckname">truckname</label>
-        <input formControlName="truckname" id="truckname" /> 
+        <label for="truckname">Name</label>
+        <input formControlName="truckname" id="truckname"/> 
         <p>
-        <label for=" latitude">latitude</label>
-        <input formControlName="latitude" id="latitude" />
+        <label for=" latitude">Latitude</label>
+        <input formControlName="latitude" id="latitude"/>
         <p>
-        <label for="longitude">longitude</label>
+        <label for="longitude">Longitude</label>
         <input formControlName="longitude" id="longitude" />
         <p>
-        <button type="submit" [disabled]="!truckForm.valid"  >Save</button>
+        <button type="submit" [disabled]="!truckForm.valid">Save</button>
           
       </form>
       </div>
