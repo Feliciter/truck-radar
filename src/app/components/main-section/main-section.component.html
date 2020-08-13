@@ -1,49 +1,58 @@
 <body>
-  <nav class="navbar navbar-dark  bg-dark flex-md-nowrap p-2 shadow">
+<nav class="navbar navbar-dark  bg-dark flex-md-nowrap p-2 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Asset map</a>
     <div class="search-wrapper col-lg-3 ">
-      <input class="form-control form-control-dark w-50" [(ngModel)]="searchText" type="text" placeholder="Search asset..." aria-label="Search">
-     
-   
-    
-      <button type="button" class="btn btn-success" (click)="open()">Add Asset</button>
-    </div>
-  </nav>
+        <input class="form-control form-control-dark w-50" [(ngModel)]="searchText" type="text"
+               placeholder="Search asset..." aria-label="Search">
 
-  <div class="container-fluid">
+
+
+
+
+        <button type="button" class="btn btn-success" (click)="open()">Add Asset</button>
+    </div>
+</nav>
+
+<div class="container-fluid">
     <div class="row">
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-md-4">
-        <div class="my-4 w-100 rounded-lg ">
-          <div class="container">
-            <h4>Map</h4>
-          </div>
-          <!-- <canvas id="myChart" width="900" height="380"></canvas> -->
-          <agm-map [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-          </agm-map>
-        
-        </div>
-      </main>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-md-4">
+            <div class="my-4 w-100 rounded-lg ">
+                <div class="container">
+                    <h4>Map</h4>
+                </div>
+                <!-- <canvas id="myChart" width="900" height="380"></canvas> -->
+                <agm-map
+                        [latitude]="lat" [longitude]="lng">
+                    <agm-marker
+                            *ngFor="let marker of markers "
+                            [latitude]="marker.lat"
+                            [longitude]="marker.lng"
+                            [opacity]="marker.alpha"
+                    >
+                    </agm-marker>
+                </agm-map>
+            </div>
+        </main>
 
-      <!-- <div  class="my-4 w-100 rounded-lg "> -->
+        <!-- <div  class="my-4 w-100 rounded-lg "> -->
 
-      <nav id="sidebarMenu" class="my-4 w-100 rounded-lg col-md-3 col-lg-3 d-md-block bg-light sidebar collapse ">
+        <nav id="sidebarMenu" class="my-4 w-100 rounded-lg col-md-3 col-lg-3 d-md-block bg-light sidebar collapse ">
 
-        <div class="container">
-          <h4>Assets</h4>
-        </div>
-        <div class="sidebar-sticky pt-3">
-  
-          <ul>
-            <li class="nav-item" *ngFor="let item of TRUCK_DATA  | filter : searchText">
-              <a class="nav-link" href="#" (click)="getmarker(item.latitude, item.longitude)" >
-                {{ item.truckname }}
-              </a>
-              <span class="close" (click)="remove(item.truckname)">&times;</span>
-            </li>
-          </ul>
-        </div>
-      </nav>
+            <div class="container">
+                <h4>Assets</h4>
+            </div>
+            <div class="sidebar-sticky pt-3">
+
+                <ul>
+                    <li class="nav-item" *ngFor="let item of alltrucks | filter : searchText">
+                        <a class="nav-link" (click)="addMarker(item.latitude,  item.longitude)">
+                            {{ item.truckname }}
+                        </a>
+                        <span class="close" (click)="remove(item.truckname)">&times;</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
     </div>
-  </div>
+</div>
