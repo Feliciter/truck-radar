@@ -1,26 +1,40 @@
 <div role="document" class="modal-dialog">
+  <h6 class="card-subtitle mb-2 ml-2 ">Add new asset</h6>
   <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title">Add new asset</h4>      
-    </div>
-    <div class="modal-body">
-              
-         <form [formGroup]="truckForm" (ngSubmit)="submit()">
-        <label for="truckname">Name</label>
-        <input formControlName="truckname" id="truckname"/> 
-        <p>
-        <label for=" latitude">Latitude</label>
-        <input formControlName="latitude" id="latitude"/>
-        <p>
-        <label for="longitude">Longitude</label>
-        <input formControlName="longitude" id="longitude" />
-        <p>
-        <button type="submit" [disabled]="!truckForm.valid">Save</button>
-          
-      </form>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="truckForm" class="form-modal" (ngSubmit)="submit()">
+          <div class="row">
+            <div class="label-with">
+              <label for="truckname">Name</label>
+            </div>
+            <div class="ml-4">
+              <input formControlName="truckname" class="modal-input" id="truckname" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="label-with">
+              <label for="latitude">Latitude</label>
+            </div>
+            <div class="ml-4">
+              <input formControlName="latitude" class="modal-input" id="latitude" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="label-with">
+              <label for="longitude">Longitude</label>
+            </div>
+            <div class="ml-4">
+              <input formControlName="longitude" class="modal-input" id="longitude" />
+            </div>
+          </div>
+          <div class="row button-row">
+            <button type="button" class="btn btn-warning btn-sm m-2"
+              (click)="activeModal.close('Close click')">Cancel</button>
+            <button type="submit" [disabled]="!truckForm.valid" class="btn btn-success btn-sm m-2">Add</button>
+          </div>
+        </form>
       </div>
-          <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
     </div>
   </div>
 </div>

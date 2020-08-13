@@ -3,6 +3,10 @@ agm-map {
   height: 800px;
 }
 
+#sidebarMenu{
+  right: 10px;
+}
+
 .search-wrapper {
 
     display: flex;
@@ -52,3 +56,19 @@ agm-map {
   li {
     cursor: "pointer"
  }
+
+ ul {
+  padding: unset;
+ }
+
+ ul .nav-link{ 
+  padding: unset;
+
+ }
+
+ ul .close {
+  padding: 1px 20px 30px 10px;
+
+ }
+
+
